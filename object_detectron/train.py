@@ -7,7 +7,7 @@ from detectron2.evaluation import COCOEvaluator, inference_on_dataset
 from detectron2.data.datasets import register_coco_instances
 from detectron2 import model_zoo
 
-register_coco_instances("leaf_train", {}, "./leaf_set/train/dataset.json", "./leaf_set/train")
+register_coco_instances("leaf_train", {}, "./dataset_1/train/dataset.json", "./dataset_1/train")
 
 cfg = get_cfg()
 cfg.merge_from_file(model_zoo.get_config_file("COCO-Detection/faster_rcnn_R_50_FPN_1x.yaml")) #配置预训练模型
