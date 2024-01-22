@@ -11,7 +11,7 @@ import torch
 #set up cuda device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-register_coco_instances("plant_train", {}, "./dataset_1/train/dataset.json", "./dataset_1/train")
+register_coco_instances("plant_train", {}, "./dataset/train/dataset.json", "./dataset/train")
 
 
 cfg = get_cfg()
