@@ -1,6 +1,6 @@
 # Detectron2_Beginner_Demo(detectron2入门样例)
 
-一份关于detectron2的训练以及预测的代码demo（目标检测/实例分割/全景分割........）
+一份关于detectron2入门级（训练+预测）的代码demo（目标检测/实例分割/全景分割........）
 
 ## 1.install
 
@@ -50,6 +50,5 @@ python -m pip install -e detectron2
 ### （3）pannramic_segmentation
 
 待写
-
 
 ## 3.训练（train.py）
