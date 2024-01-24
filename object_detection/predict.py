@@ -32,4 +32,4 @@ my_metadata.set(thing_classes=["plant"])  # 设置自定义的类别名称列表
 v = Visualizer(im[:, :, ::-1], my_metadata, scale=1.0)
 out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
 out_frame=out.get_image()[:, :, ::-1]
-cv2.imshow(out_frame)
+cv2.imwrite("./result.png",out_frame)

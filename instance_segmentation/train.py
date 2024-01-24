@@ -15,7 +15,7 @@ register_coco_instances("leaftrain", {}, "./leaf_sets/train/beantrain_coco.json"
 
 
 cfg = get_cfg()
-cfg.merge_from_file("./detectron2_dc/configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
+cfg.merge_from_file(model_zoo.get_config_file("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml"))
 cfg.DATASETS.TRAIN = ("leaftrain",)
 cfg.DATASETS.TEST = ()
 MetadataCatalog.get("leaftrain").set(thing_classes=["leaf"])

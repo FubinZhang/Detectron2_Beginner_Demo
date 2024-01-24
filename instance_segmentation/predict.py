@@ -11,9 +11,9 @@ import time
 im = cv2.imread("test.png")
 
 cfg = get_cfg()
-cfg.merge_from_file("./detectron2_dc/configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
-cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.8  # set threshold for this model
-cfg.MODEL.WEIGHTS = "./output/bean1_mask_rcnn_R_50_FPN_3x_500iter/model_final.pth"
+cfg.merge_from_file(model_zoo.get_config_file("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml"))
+cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5  # set threshold for this model
+cfg.MODEL.WEIGHTS = "./model_final.pth"
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 128   # faster, and good enough for this toy dataset (default: 512)
 cfg.MODEL.ROI_HEADS.NUM_CLASSES = 2
 predictor = DefaultPredictor(cfg)
@@ -34,4 +34,4 @@ v = Visualizer(im[:, :, ::-1], my_metadata, scale=1.0)
 out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
 out_frame=out.get_image()[:, :, ::-1]
 
-cv2.imshow(out_frame)
+cv2.imwrite("result.png", out_frame)
